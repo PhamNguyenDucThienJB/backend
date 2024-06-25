@@ -10,7 +10,7 @@ RUN mvn clean package -DskipTests
 FROM openjdk:17-jdk-slim
 WORKDIR /app
 
-COPY --from=build /target/BackEnd-0.0.1-SNAPSHOT.war BackEnd.war
+COPY --from=build /app/target/BackEnd-0.0.1-SNAPSHOT.war BackEnd.war
 EXPOSE 8080
 
 ENTRYPOINT ["java","-jar","BackEnd.war"]
